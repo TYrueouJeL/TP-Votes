@@ -18,6 +18,7 @@
             <li>{{ law.content }}</li>
             <li>{{ law.publishdate|date('d/m/Y') }}</li>
         </ul>
+    <a href="/law/update/{{ law.id }}">Modifer une loi</a>
     </li>
     {% endfor %}
     </ul>
