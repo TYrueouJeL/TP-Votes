@@ -18,17 +18,18 @@
             <li>{{ law.content }}</li>
             <li>{{ law.publishdate|date('d/m/Y') }}</li>
         </ul>
-    <a href="/law/update/{{ law.id }}">Modifer une loi</a>
+    <a href="/law/update/{{ law.id }}">Modifer la loi</a>
+    <br />
+    <a href="/law/delete/{{ law.id }}">Supprimer la loi</a>
     </li>
     {% endfor %}
     </ul>
 
 {#    {{ dump(lawList) }}#}
 
-    <ul>
-        <li><a href="/law/create">Créer une loi</a></li>
-        <li><a href="/">Retour</a></li>
-    </ul>
+     <a href="/law/create">Créer une loi</a>
+    <br />
+     <a href="/">Retour</a>
 
 </div>
 {% endblock %}

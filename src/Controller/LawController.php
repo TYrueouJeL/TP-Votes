@@ -72,4 +72,22 @@ class LawController extends AbstractController
             'form' => $form,
         ]);
     }
+
+    #[Route('/law/delete/{id}', name: 'app_law_delete')]
+    public function delete(int $id): Response
+    {
+        return $this->render('law_delete/index.html.twig', [
+            'id' => $id
+        ]);
+    }
+
+    #[Route('/law/delete/confirm/{id}', name: 'app_law_delete_confirm')]
+    public function deleteConfirm(EntityManagerInterface $entityManager, int $id): Response
+    {
+        $law = $entityManager->getRepository(Law::class)->find($id);
+        $entityManager->remove($law);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_law_list');
+    }
 }
